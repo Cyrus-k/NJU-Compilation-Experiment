@@ -1,0 +1,11 @@
+int main()
+{
+    a = 1;
+    int i = 4;
+    int j = 5;
+    int k = 6;
+    s[5] = 1;
+    if (i == 1)
+        i = 0;
+    m = 1;
+}

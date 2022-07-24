@@ -1,0 +1,13 @@
+struct a;
+int;
+float _func1(int X1)
+{
+    float a_1_2;
+    a = 1;
+    //int 6_Wrong;
+    //struct a;
+    if (a == 1){
+	int m;
+    }
+    return 0;
+}

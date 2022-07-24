@@ -1,0 +1,80 @@
+FUNCTION get_max :
+PARAM v1
+v2 := #0
+v3 := *v1
+v4 := #4
+v5 := #0
+LABEL label1 :
+IF v5 < v4 GOTO label2
+GOTO label3
+LABEL label2 :
+t4 := v5 * #4
+t3 := v1 + t4
+IF *t3 > v3 GOTO label4
+GOTO label5
+LABEL label4 :
+v2 := v5
+t6 := v5 * #4
+t5 := v1 + t6
+v3 := *t5
+LABEL label5 :
+v5 := v5 + #1
+GOTO label1
+LABEL label3 :
+RETURN v2
+FUNCTION mod :
+PARAM v6
+PARAM v7
+t8 := v6 / v7
+t9 := t8 * v7
+t10 := v6 - t9
+RETURN t10
+FUNCTION main :
+v8 := #4
+DEC v9 64
+DEC v10 16
+DEC v11 8
+v12 := #0
+v13 := #0
+v12 := #0
+LABEL label6 :
+IF v12 < v8 GOTO label7
+GOTO label8
+LABEL label7 :
+v13 := #0
+LABEL label9 :
+IF v13 < v8 GOTO label10
+GOTO label11
+LABEL label10 :
+t12 := v12 * #16
+t11 := &v9 + t12
+t14 := v13 * #4
+t13 := t11 + t14
+ARG v8
+t15 := v12 + v13
+ARG t15
+t16 := CALL mod
+*t13 := t16
+v13 := v13 + #1
+GOTO label9
+LABEL label11 :
+t19 := v12 * #4
+t18 := &v10 + t19
+t21 := v12 * #16
+t20 := &v9 + t21
+ARG t20
+t22 := CALL get_max
+*t18 := t22
+v12 := v12 + #1
+GOTO label6
+LABEL label8 :
+t24 := &v11
+t25 := &v10
+*t24 := *t25
+t26 := t24 + #4
+t27 := t25 + #4
+*t26 := *t27
+WRITE v11
+t30 := &v11 + #4
+WRITE *t30
+RETURN #0

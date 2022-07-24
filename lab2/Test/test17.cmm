@@ -1,0 +1,12 @@
+int main()
+{
+    struct Position pos;
+}
+
+/*int func(int i){
+
+}
+
+int main(){
+    i = 1;
+}*/

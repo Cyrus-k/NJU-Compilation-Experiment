@@ -1,0 +1,87 @@
+FUNCTION mod :
+PARAM v1
+PARAM v2
+t1 := v1 / v2
+t2 := t1 * v2
+v3 := v1 - t2
+RETURN v3
+FUNCTION is_prime :
+PARAM v4
+v5 := #0
+IF v4 < #2 GOTO label1
+GOTO label2
+LABEL label1 :
+RETURN #0
+LABEL label2 :
+IF v4 == #2 GOTO label3
+GOTO label4
+LABEL label3 :
+RETURN #1
+LABEL label4 :
+ARG #2
+ARG v4
+t4 := CALL mod
+IF t4 == #0 GOTO label5
+GOTO label6
+LABEL label5 :
+RETURN #0
+LABEL label6 :
+v5 := #3
+LABEL label7 :
+t5 := v5 * v5
+IF t5 <= v4 GOTO label8
+GOTO label9
+LABEL label8 :
+ARG v5
+ARG v4
+t6 := CALL mod
+IF t6 == #0 GOTO label10
+GOTO label11
+LABEL label10 :
+RETURN #0
+LABEL label11 :
+v5 := v5 + #1
+GOTO label7
+LABEL label9 :
+RETURN #1
+FUNCTION fabonacci :
+PARAM v6
+IF v6 == #0 GOTO label12
+GOTO label13
+LABEL label12 :
+RETURN #0
+GOTO label14
+LABEL label13 :
+IF v6 == #1 GOTO label15
+GOTO label16
+LABEL label15 :
+RETURN #1
+LABEL label16 :
+LABEL label14 :
+t8 := v6 - #1
+ARG t8
+t9 := CALL fabonacci
+t10 := v6 - #2
+ARG t10
+t11 := CALL fabonacci
+t12 := t9 + t11
+RETURN t12
+FUNCTION main :
+v7 := #0
+LABEL label17 :
+ARG #5
+t13 := CALL fabonacci
+IF v7 < t13 GOTO label18
+GOTO label19
+LABEL label18 :
+ARG v7
+t14 := CALL is_prime
+IF t14 != #0 GOTO label20
+GOTO label21
+LABEL label20 :
+WRITE v7
+LABEL label21 :
+v7 := v7 + #1
+GOTO label17
+LABEL label19 :
+RETURN #0

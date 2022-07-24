@@ -1,0 +1,111 @@
+FUNCTION cal_mid :
+PARAM v1
+PARAM v2
+t1 := v1 + v2
+t2 := t1 / #2
+RETURN t2
+FUNCTION main :
+v3 := #5
+DEC v4 20
+v5 := #0
+v6 := #0
+v7 := #0
+v8 := #0
+LABEL label1 :
+IF v5 < v3 GOTO label2
+GOTO label3
+LABEL label2 :
+t4 := v5 * #4
+t3 := &v4 + t4
+READ t5
+*t3 := t5
+v5 := v5 + #1
+GOTO label1
+LABEL label3 :
+v6 := #0
+LABEL label4 :
+t7 := v3 - #1
+IF v6 < t7 GOTO label5
+GOTO label6
+LABEL label5 :
+v7 := #0
+LABEL label7 :
+t8 := v3 - #1
+IF v7 < t8 GOTO label8
+GOTO label9
+LABEL label8 :
+t10 := v7 * #4
+t9 := &v4 + t10
+t11 := v7 + #1
+t13 := t11 * #4
+t12 := &v4 + t13
+IF *t9 > *t12 GOTO label10
+GOTO label11
+LABEL label10 :
+t15 := v7 * #4
+t14 := &v4 + t15
+v8 := *t14
+t17 := v7 * #4
+t16 := &v4 + t17
+t18 := v7 + #1
+t20 := t18 * #4
+t19 := &v4 + t20
+*t16 := *t19
+t21 := v7 + #1
+t23 := t21 * #4
+t22 := &v4 + t23
+*t22 := v8
+LABEL label11 :
+v7 := v7 + #1
+GOTO label7
+LABEL label9 :
+v6 := v6 + #1
+GOTO label4
+LABEL label6 :
+v6 := #0
+LABEL label12 :
+IF v6 < v3 GOTO label13
+GOTO label14
+LABEL label13 :
+t27 := v6 * #4
+t26 := &v4 + t27
+WRITE *t26
+v6 := v6 + #1
+GOTO label12
+LABEL label14 :
+READ t29
+v11 := t29
+v9 := #0
+v10 := v3 - #1
+LABEL label15 :
+IF v9 <= v10 GOTO label16
+GOTO label17
+LABEL label16 :
+ARG v10
+ARG v9
+t31 := CALL cal_mid
+v12 := t31
+t33 := v12 * #4
+t32 := &v4 + t33
+IF *t32 == v11 GOTO label18
+GOTO label19
+LABEL label18 :
+WRITE #1
+RETURN #0
+GOTO label20
+LABEL label19 :
+t35 := v12 * #4
+t34 := &v4 + t35
+IF *t34 < v11 GOTO label21
+GOTO label22
+LABEL label21 :
+v9 := v12 + #1
+GOTO label23
+LABEL label22 :
+v10 := v12 - #1
+LABEL label23 :
+LABEL label20 :
+GOTO label15
+LABEL label17 :
+WRITE #0
+RETURN #0

@@ -1,0 +1,8 @@
+struct Vector {
+  int x, y;
+};
+
+struct Vector{
+  int x;
+  int a = 1;
+};
